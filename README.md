@@ -6,7 +6,7 @@ docker pull baseten/vllm
 ## Query Router | Relevant Grader | Hallucination Grader | Answer Grader | Reranker | Web Search
 ### Langchain | LangGraph | GROQ | Wevieate | Sentence-Transformers | Tavily | Chainlit
 
-<center><img width="600" src="./readme_img/3grader.png"></center>
+<center><img width="300" src="./readme_img/3grader.png"></center>
 
 ### summary
 
@@ -28,7 +28,7 @@ Application Interface : Chainlit
 ## Query Router | Hallucination Grader | Reranker | Web Search
 ### Langchain | LangGraph | Claude3.5 | Wevieate | Cohere | Tavily(advanced) | Fastapi | Streamlit
 
-<center><img width="600" src="./readme_img/blog_rag.png"></center>
+<center><img width="300" src="./readme_img/blog_rag.png"></center>
 
 ### summary
 RAG Framework : Langchain\
