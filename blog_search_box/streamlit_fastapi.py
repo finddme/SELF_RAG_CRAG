@@ -37,6 +37,15 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+def process_sources(sources):
+    if len(sources) == 1 and sources[0]['source'] == "web search result":
+        return "Web search result"
+    elif len(sources) == 1 and sources[0]['source'] == "casual conversation":
+        return "Casual chat"
+    
+    # For other cases, process the source_title
+    return [s['source_title'].split("\n")[0] for s in sources]
+    
 # st.sidebar.button('Clear History', on_click=clear_chat_history)
 # async def run_convo():
 def run_convo():
@@ -83,6 +92,10 @@ def run_convo():
                 # source= [s["source_title"].split("\n")[0] if s["source_title"] != " " else " " for s in source]
                 # if source[0] !=" ":
                 #     answer+= "\n\nsources->\n"+"\n".join(source)
+                source=process_sources(source)
+                if type(source)==list:
+                    answer+="\n".join(source)
+                else:answer+= f"\n {source}"
                 st.write(str(answer))
             
             except Exception as e:
