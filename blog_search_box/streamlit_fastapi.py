@@ -39,9 +39,9 @@ st.markdown(
 
 def process_sources(sources):
     if len(sources) == 1 and sources[0]['source'] == "web search result":
-        return "Web search result"
+        return "[Web search result]"
     elif len(sources) == 1 and sources[0]['source'] == "casual conversation":
-        return "Casual chat"
+        return "[Casual chat]"
     
     # For other cases, process the source_title
     return [s['source_title'].split("\n")[0] for s in sources]
@@ -94,8 +94,9 @@ def run_convo():
                 #     answer+= "\n\nsources->\n"+"\n".join(source)
                 source=process_sources(source)
                 if type(source)==list:
+                    answer+="[Blog post retrieval]"
                     answer+="\n".join(source)
-                else:answer+= f"\n {source}"
+                else:answer+= f"\n\n {source}"
                 st.write(str(answer))
             
             except Exception as e:
