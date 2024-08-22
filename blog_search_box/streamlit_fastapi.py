@@ -102,28 +102,28 @@ def run_convo():
                 except Exception as e:
                     error_msg="Need to check port-forwarding status: Need to verify the server running FastAPI (port 7808)"
                     st.error(f"Error: {error_msg}")
-    """
-    if user_input:
-        with st.spinner("Generating response..."):
-            try:
-                # answer, source = await get_response(user_input)
-                answer, source = get_response(user_input)
-                # source= [s["source_title"].split("\n")[0] if s["source_title"] != " " else " " for s in source]
-                # if source[0] !=" ":
-                #     answer+= "\n\nsources->\n"+"\n".join(source)
-                answer=answer+"\n"
-                source=process_sources(source)
-                if type(source)==list:
-                    answer=answer+"[Blog post retrieval]\n"
-                    answer=reduce(lambda acc, s: acc + s + "\n", source, answer)
-                else:
-                    answer=answer+source
-                st.write(str(answer))
-            except Exception as e:
-                error_msg="Need to check port-forwarding status: Need to verify the server running FastAPI (port 7808)"
-                st.error(f"Error: {error_msg}")
-                # st.error(f"Error: {e}")
-    """
+    
+    # if user_input:
+    #     with st.spinner("Generating response..."):
+    #         try:
+    #             # answer, source = await get_response(user_input)
+    #             answer, source = get_response(user_input)
+    #             # source= [s["source_title"].split("\n")[0] if s["source_title"] != " " else " " for s in source]
+    #             # if source[0] !=" ":
+    #             #     answer+= "\n\nsources->\n"+"\n".join(source)
+    #             answer=answer+"\n"
+    #             source=process_sources(source)
+    #             if type(source)==list:
+    #                 answer=answer+"[Blog post retrieval]\n"
+    #                 answer=reduce(lambda acc, s: acc + s + "\n", source, answer)
+    #             else:
+    #                 answer=answer+source
+    #             st.write(str(answer))
+    #         except Exception as e:
+    #             error_msg="Need to check port-forwarding status: Need to verify the server running FastAPI (port 7808)"
+    #             st.error(f"Error: {error_msg}")
+    #             # st.error(f"Error: {e}")
+    
 # ===============================================================================================================
 
 if __name__ == '__main__':
