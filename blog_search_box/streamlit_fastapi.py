@@ -9,6 +9,7 @@ import random
 import time
 from pprint import pprint
 import json
+from functools import reduce
 
 
 # async def get_response(user_input):
@@ -92,11 +93,13 @@ def run_convo():
                 # source= [s["source_title"].split("\n")[0] if s["source_title"] != " " else " " for s in source]
                 # if source[0] !=" ":
                 #     answer+= "\n\nsources->\n"+"\n".join(source)
+                answer=answer+"\n"
                 source=process_sources(source)
                 if type(source)==list:
-                    answer+="[Blog post retrieval]"
-                    answer+="\n".join(source)
-                else:answer+= f"\n\n {source}"
+                    answer=answer+"[Blog post retrieval]\n"
+                    answer=reduce(lambda acc, s: acc + s + "\n", source, answer)
+                else:
+                    answer=answer+source
                 st.write(str(answer))
             
             except Exception as e:
