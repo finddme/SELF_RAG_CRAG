@@ -88,15 +88,19 @@ def run_convo():
     submit = st.form_submit_button(label="Submit")
     if submit:
         with st.spinner("Generating response..."):
-            answer, source = get_response(user_input)
-            answer=answer+"\n"
-            source=process_sources(source)
-            if type(source)==list:
-                answer=answer+"[Blog post retrieval]\n"
-                answer=reduce(lambda acc, s: acc + s + "\n", source, answer)
-            else:
-                answer=answer+source
-            st.write(str(answer))
+            try:
+                answer, source = get_response(user_input)
+                answer=answer+"\n"
+                source=process_sources(source)
+                if type(source)==list:
+                    answer=answer+"[Blog post retrieval]\n"
+                    answer=reduce(lambda acc, s: acc + s + "\n", source, answer)
+                else:
+                    answer=answer+source
+                st.write(str(answer))
+            except Exception as e:
+                error_msg="Need to check port-forwarding status: Need to verify the server running FastAPI (port 7808)"
+                st.error(f"Error: {error_msg}")
     """
     if user_input:
         with st.spinner("Generating response..."):
@@ -114,11 +118,11 @@ def run_convo():
                 else:
                     answer=answer+source
                 st.write(str(answer))
-    """
             except Exception as e:
                 error_msg="Need to check port-forwarding status: Need to verify the server running FastAPI (port 7808)"
                 st.error(f"Error: {error_msg}")
                 # st.error(f"Error: {e}")
+    """
 # ===============================================================================================================
 
 if __name__ == '__main__':
