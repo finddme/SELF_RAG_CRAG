@@ -102,7 +102,7 @@ def run_convo():
         #         except Exception as e:
         #             error_msg="Need to check port-forwarding status: Need to verify the server running FastAPI (port 7808)"
         #             st.error(f"Error: {error_msg}")
-    
+    st.image("https://finddme.github.io/public/searchbox1.png", caption="Sunrise by the mountains")
     if user_input:
         with st.spinner("Generating response..."):
             try:
