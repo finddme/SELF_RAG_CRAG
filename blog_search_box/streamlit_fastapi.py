@@ -80,9 +80,11 @@ def run_convo():
     # :orange[*Query Router | Hallucination Grader | Reranker | Web search*]\\
     #             unsafe_allow_html=True 
     #             )
-    user_input = st.text_input("""검색어를 입력하세요.\\
-                                Route the query into 3 pipelines : 
-                                :orange[**Blog post retrieval / Web search / Casual chat**]
+    # user_input = st.text_input("""검색어를 입력하세요.\\
+    #                             Route the query into 3 pipelines : 
+    #                             :orange[**Blog post retrieval / Web search / Casual chat**]
+    #                             """)
+    user_input = st.text_input("""검색어를 입력하세요.
                                 """)
     # submitted = st.form_submit_button('Send')
     
