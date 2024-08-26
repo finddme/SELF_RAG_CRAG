@@ -84,7 +84,7 @@ def run_convo():
     #                             Route the query into 3 pipelines : 
     #                             :orange[**Blog post retrieval / Web search / Casual chat**]
     #                             """)
-    user_input = st.text_input("""검색어를 입력하세요.
+    user_input = st.text_input(""":orange[**검색어를 입력하세요.**]
                                 """)
     # submitted = st.form_submit_button('Send')
     
