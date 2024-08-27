@@ -1,8 +1,9 @@
 import weaviate
+from db.config import weavidat_url
 
 def set_db_client():
+    global weavidat_url
     client = weaviate.Client(
-        url="http://192.168.2.186:8080"
+        url=weavidat_url
     )
     return client
-
