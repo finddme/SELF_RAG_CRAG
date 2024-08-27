@@ -9,7 +9,8 @@ def reranker_cohere(state,co,weaviate_class):
     print("--- RERANK ---")
     question = state["question"]
     documents_or = state["documents"]
-
+    weaviate_class=weaviate_class.title()
+    
     documents=[r["text"] for r in documents_or["data"]["Get"][weaviate_class]]
     source=[{"source_title":r["source_title"],"source":r["source"]} for r in documents_or["data"]["Get"][weaviate_class]]
     
@@ -31,6 +32,7 @@ def reranker_fr(state,reranker_model,weaviate_class):
     print("---Reranking---")
     question = state["question"]
     documents = state["documents"]
+    weaviate_class=weaviate_class.title()
     
     # Rerank
     sentence_pairs = [[question, rr["text"]] for rr in documents["data"]["Get"][weaviate_class]]
