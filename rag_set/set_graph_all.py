@@ -13,7 +13,7 @@ from rag_set.set_models import load_models_for_all
 from rag_set.set_vectordb import set_db_client
 from rag_set.set_data_parsing_models import GraphState
 
-weaviate_class="B_with_title"
+from db.config import weaviate_class
 
 (question_router, 
 retrieval_grader_relevance, 
